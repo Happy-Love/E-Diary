@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32127.271
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Diary.API", "E-Diary.UI\E-Diary.API.csproj", "{24ED274C-3E46-45B3-8984-949D72F2EC76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Diary.API", "E-Diary.API\E-Diary.API.csproj", "{24ED274C-3E46-45B3-8984-949D72F2EC76}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Diary.Domain", "E-Diary.Domain\E-Diary.Domain.csproj", "{7EDD8A37-C9C9-4D7A-A513-873FA2580CE0}"
 EndProject
