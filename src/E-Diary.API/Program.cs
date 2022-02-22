@@ -1,10 +1,11 @@
+using E_Diary.API.Filters.ExceptionFilters;
 using E_Diary.Core.Exceptions;
 using E_Diary.Core.Services;
 using E_Diary.Domain.Entities.Interfaces;
 using E_Diary.Infrastructure.Persistence;
 using E_Diary.Infrastructure.Persistence.Settings;
-using E_Diary.API.Filters.ExceptionFilters;
 using Microsoft.AspNetCore.HttpLogging;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
 using Monolith.Diploma.Persistence.Repositories;
 
@@ -14,7 +15,7 @@ var configuration = builder.Configuration;
 
 builder.Services.AddControllers(config =>
 {
-    config.Filters.Add(new BadRequestOnExceptionAttribute(typeof(ValidationException),typeof(ArgumentNullException), typeof(ArgumentOutOfRangeException)));
+    config.Filters.Add(new BadRequestOnExceptionAttribute(typeof(ValidationException), typeof(ArgumentNullException), typeof(ArgumentOutOfRangeException)));
     config.Filters.Add(new NotFoundOnExceptionAttribute(typeof(ResourceNotFoundException)));
 });
 
@@ -38,15 +39,15 @@ builder.Services.AddScoped<ISubjectService, SubjectService>();
 builder.Services.AddScoped<IGroupService, GroupService>();
 
 var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+// Configure the HTTP request pipeline.
+app.UseSwagger();
+app.UseSwaggerUI();
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
