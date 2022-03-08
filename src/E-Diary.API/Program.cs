@@ -6,6 +6,7 @@ using E_Diary.Domain.Entities.Interfaces;
 using E_Diary.Infrastructure.Persistence;
 using E_Diary.Infrastructure.Persistence.Settings;
 using E_Diary.Infrastructure.PubSub.Services;
+using E_Diary.Infrastructure.PubSub.Settings;
 using Microsoft.AspNetCore.HttpLogging;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,8 @@ builder.Services.AddHttpLogging(options =>
 });
 
 builder.Services.Configure<DatabaseSettings>(configuration.GetSection(nameof(DatabaseSettings)));
+builder.Services.Configure<GCloudIntegrationSettings>(configuration.GetSection(nameof(GCloudIntegrationSettings)));
+
 builder.Services.AddScoped<DbContext, ApplicationDatabaseContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(EntityFrameworkRepository<>));
 
@@ -41,7 +44,7 @@ builder.Services.AddScoped<ISchoolerService, SchoolerService>();
 builder.Services.AddScoped<ISubjectService, SubjectService>();
 builder.Services.AddScoped<IGroupService, GroupService>();
 builder.Services.AddScoped<IGCloudBillingService, GCloudBillingService>();
-
+//IOptions<GCloudIntegrationSettings>
 var app = builder.Build();
 app.UseForwardedHeaders(new ForwardedHeadersOptions
 {
