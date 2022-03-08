@@ -17,6 +17,7 @@
   <ItemGroup>
     <ProjectReference Include="..\E-Diary.Core\E-Diary.Core.csproj" />
     <ProjectReference Include="..\E-Diary.Infrastructure.Persistence\E-Diary.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\E-Diary.Infrastructure.PubSub\E-Diary.Infrastructure.PubSub.csproj" />
     <ProjectReference Include="..\E-Diary.Utils\E-Diary.Utils.csproj" />
   </ItemGroup>
 

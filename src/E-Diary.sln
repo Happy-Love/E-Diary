@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Public", "Public", "{99CF87
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Diary.Utils", "E-Diary.Utils\E-Diary.Utils.csproj", "{F8403645-E949-4DB5-AF5E-B4C2BD065E91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Diary.Infrastructure.PubSub", "E-Diary.Infrastructure.PubSub\E-Diary.Infrastructure.PubSub.csproj", "{B54D88AB-A0CB-4593-8516-F084CF13C6F4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{F8403645-E949-4DB5-AF5E-B4C2BD065E91}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F8403645-E949-4DB5-AF5E-B4C2BD065E91}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F8403645-E949-4DB5-AF5E-B4C2BD065E91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B54D88AB-A0CB-4593-8516-F084CF13C6F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B54D88AB-A0CB-4593-8516-F084CF13C6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B54D88AB-A0CB-4593-8516-F084CF13C6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B54D88AB-A0CB-4593-8516-F084CF13C6F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{92A36319-BA73-4C7F-BBCD-BE9815C433D3} = {7DF35F37-90FF-4E07-9B0F-5B7C99640290}
 		{46A92109-4548-44CA-A6A4-2380AAE16854} = {9979F593-3956-4CED-B1FE-EC84F015A1E5}
 		{F8403645-E949-4DB5-AF5E-B4C2BD065E91} = {99CF87B9-52AC-430D-B958-7C1E7A603253}
+		{B54D88AB-A0CB-4593-8516-F084CF13C6F4} = {9979F593-3956-4CED-B1FE-EC84F015A1E5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E38BF52C-6BE4-4BB2-9C25-98B53FBF0A06}

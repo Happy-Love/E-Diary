@@ -1,6 +1,8 @@
 ﻿using E_Diary.Core.Dto.Mark;
+using E_Diary.Core.Dto.Operation;
 using E_Diary.Core.Dto.Subject;
 using E_Diary.Core.Exceptions;
+using E_Diary.Core.IntegrationServices;
 using E_Diary.Core.Marks;
 using E_Diary.Domain.Entities;
 using E_Diary.Domain.Entities.Interfaces;
@@ -13,13 +15,18 @@ namespace E_Diary.Core.Services
         private readonly IRepository<Subject> subjectRepository;
         private readonly IRepository<SchoolerMark> markRepository;
 
+        private readonly IGCloudBillingService gCloudBillingService;
+
         public SchoolerMarkService(IRepository<Schooler> schoolerRepository,
             IRepository<Subject> subjectRepository,
-            IRepository<SchoolerMark> markRepository)
+            IRepository<SchoolerMark> markRepository,
+            IGCloudBillingService gCloudBillingService
+            )
         {
             this.schoolerRepository = schoolerRepository;
             this.subjectRepository = subjectRepository;
             this.markRepository = markRepository;
+            this.gCloudBillingService = gCloudBillingService;
         }
 
         public async Task<int> CreateSchoolerMark(int schoolerId, SchoolerMarkCreateRequest request)
@@ -37,6 +44,17 @@ namespace E_Diary.Core.Services
             var subject = await subjectRepository.GetById(request.SubjectId);
             if (subject == null)
                 throw new ValidationException(nameof(subject));
+
+            var operationResult = await gCloudBillingService.TryProcessingRequest(new OperationRequest()
+            {
+                OperationId = Guid.NewGuid(),
+                Mark = request.Score
+            });
+
+            if (!operationResult.IsAllowed)
+            {
+                throw new OperationNotAllowedException("Mark has invalid values, should be from 0 to 10");
+            }
 
             var entity = new SchoolerMark()
             {

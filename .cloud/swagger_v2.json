@@ -1,0 +1,1106 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "title": "E-Diary.API",
+      "version": "1.0"
+    },
+    "host": "e-diary.endpoints.tactile-sentry-341817.cloud.goog",
+    "paths": {
+      "/api/groups": {
+        "get": {
+          "operationId": "get_all_groups",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "default": 0,
+              "format": "int32",
+              "in": "query",
+              "name": "skip",
+              "type": "integer"
+            },
+            {
+              "default": 100,
+              "format": "int32",
+              "in": "query",
+              "name": "take",
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "items": {
+                  "$ref": "#/definitions/GroupResponse"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "tags": [
+            "Groups"
+          ]
+        },
+        "post": {
+          "operationId": "post_group",
+          "consumes": [
+            "application/json",
+            "text/json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/GroupCreateRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "201": {
+              "description": "Success",
+              "schema": {
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Groups"
+          ]
+        }
+      },
+      "/api/groups/{groupId}": {
+        "delete": {
+          "operationId": "delete_group_by_id",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "groupId",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Success"
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Groups"
+          ]
+        },
+        "get": {
+          "operationId": "get_group",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "groupId",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/GroupResponse"
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Groups"
+          ]
+        },
+        "put": {
+          "operationId": "put_group_by_id",
+          "consumes": [
+            "application/json",
+            "text/json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "groupId",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/GroupUpdateRequest"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Success"
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Groups"
+          ]
+        }
+      },
+      "/api/schoolers": {
+        "get": {
+          "operationId": "get_all_schoolers",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "default": 0,
+              "format": "int32",
+              "in": "query",
+              "name": "skip",
+              "type": "integer"
+            },
+            {
+              "default": 100,
+              "format": "int32",
+              "in": "query",
+              "name": "take",
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "items": {
+                  "$ref": "#/definitions/SchoolerResponse"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "tags": [
+            "Schoolers"
+          ]
+        },
+        "post": {
+          "operationId": "post_schooler",
+          "consumes": [
+            "application/json",
+            "text/json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/SchoolerCreateRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "201": {
+              "description": "Success",
+              "schema": {
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Schoolers"
+          ]
+        }
+      },
+      "/api/schoolers/{schoolerId}": {
+        "delete": {
+          "operationId": "delete_schooler_by_id",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "schoolerId",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Success"
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Schoolers"
+          ]
+        },
+        "get": {
+          "operationId": "get_schooler_by_id",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "schoolerId",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/SchoolerResponse"
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Schoolers"
+          ]
+        },
+        "put": {
+          "operationId": "put_schooler_by_id",
+          "consumes": [
+            "application/json",
+            "text/json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "schoolerId",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/SchoolerUpdateRequest"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Success"
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Schoolers"
+          ]
+        }
+      },
+      "/api/schoolers/{schoolerId}/marks": {
+        "get": {
+          "operationId": "get_all_schooler_marks_by_schooler_id",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "schoolerId",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "default": 0,
+              "format": "int32",
+              "in": "query",
+              "name": "skip",
+              "type": "integer"
+            },
+            {
+              "default": 100,
+              "format": "int32",
+              "in": "query",
+              "name": "take",
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "items": {
+                  "$ref": "#/definitions/SchoolerMarkResponse"
+                },
+                "type": "array"
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "SchoolerMarks"
+          ]
+        },
+        "post": {
+          "operationId": "post_schooler_mark",
+          "consumes": [
+            "application/json",
+            "text/json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "schoolerId",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/SchoolerMarkCreateRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "201": {
+              "description": "Success",
+              "schema": {
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "SchoolerMarks"
+          ]
+        }
+      },
+      "/api/schoolers/{schoolerId}/marks/{markId}": {
+        "delete": {
+          "operationId": "delete_schooler_mark",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "schoolerId",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "markId",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Success"
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "SchoolerMarks"
+          ]
+        },
+        "get": {
+          "operationId": "get_schooler_mark_by_id",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "schoolerId",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "markId",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/SchoolerMarkResponse"
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "SchoolerMarks"
+          ]
+        },
+        "put": {
+          "operationId": "put_schooler_mark_by_id",
+          "consumes": [
+            "application/json",
+            "text/json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "schoolerId",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "markId",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/SchoolerMarkUpdateRequest"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Success"
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "SchoolerMarks"
+          ]
+        }
+      },
+      "/api/subjects": {
+        "get": {
+          "operationId": "get_all_subjects",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "default": 0,
+              "format": "int32",
+              "in": "query",
+              "name": "skip",
+              "type": "integer"
+            },
+            {
+              "default": 100,
+              "format": "int32",
+              "in": "query",
+              "name": "take",
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "items": {
+                  "$ref": "#/definitions/SubjectResponse"
+                },
+                "type": "array"
+              }
+            }
+          },
+          "tags": [
+            "Subjects"
+          ]
+        },
+        "post": {
+          "operationId": "post_subject",
+          "consumes": [
+            "application/json",
+            "text/json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/SubjectCreateRequest"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            },
+            "201": {
+              "description": "Success",
+              "schema": {
+                "format": "int32",
+                "type": "integer"
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Subjects"
+          ]
+        }
+      },
+      "/api/subjects/{subjectId}": {
+        "delete": {
+          "operationId": "delete_subject",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "subjectId",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Success"
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Subjects"
+          ]
+        },
+        "get": {
+          "operationId": "get_subject",
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "subjectId",
+              "required": true,
+              "type": "integer"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "schema": {
+                "$ref": "#/definitions/SubjectResponse"
+              }
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Subjects"
+          ]
+        },
+        "put": {
+          "operationId": "put_subject",
+          "consumes": [
+            "application/json",
+            "text/json"
+          ],
+          "produces": [
+            "text/plain",
+            "application/json",
+            "text/json"
+          ],
+          "parameters": [
+            {
+              "format": "int32",
+              "in": "path",
+              "name": "subjectId",
+              "required": true,
+              "type": "integer"
+            },
+            {
+              "in": "body",
+              "name": "body",
+              "schema": {
+                "$ref": "#/definitions/SubjectUpdateRequest"
+              }
+            }
+          ],
+          "responses": {
+            "204": {
+              "description": "Success"
+            },
+            "400": {
+              "description": "Bad Request",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            },
+            "404": {
+              "description": "Not Found",
+              "schema": {
+                "$ref": "#/definitions/ErrorResult"
+              }
+            }
+          },
+          "tags": [
+            "Subjects"
+          ]
+        }
+      }
+    },
+    "definitions": {
+      "ErrorResult": {
+        "additionalProperties": false,
+        "properties": {
+          "error": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "statusCode": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "GroupCreateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "GroupResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "name": {
+            "type": "string",
+            "x-nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "GroupUpdateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "name": {
+            "type": "string",
+            "x-nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "SchoolerCreateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "groupId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "lastName": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "x-nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "SchoolerMarkCreateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "schoolerId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "score": {
+            "format": "int32",
+            "type": "integer",
+            "x-nullable": true
+          },
+          "subjectId": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "SchoolerMarkResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string",
+            "x-nullable": true
+          },
+          "score": {
+            "format": "int32",
+            "type": "integer",
+            "x-nullable": true
+          },
+          "subject": {
+            "$ref": "#/definitions/SubjectResponse"
+          }
+        },
+        "type": "object"
+      },
+      "SchoolerMarkUpdateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "createdAt": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "schoolerId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "score": {
+            "format": "int32",
+            "type": "integer",
+            "x-nullable": true
+          },
+          "subjectId": {
+            "format": "int32",
+            "type": "integer"
+          }
+        },
+        "type": "object"
+      },
+      "SchoolerResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "group": {
+            "$ref": "#/definitions/GroupResponse"
+          },
+          "id": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "lastName": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "x-nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "SchoolerUpdateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "firstName": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "groupId": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "id": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "lastName": {
+            "type": "string",
+            "x-nullable": true
+          },
+          "middleName": {
+            "type": "string",
+            "x-nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "SubjectCreateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "x-nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "SubjectResponse": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "name": {
+            "type": "string",
+            "x-nullable": true
+          }
+        },
+        "type": "object"
+      },
+      "SubjectUpdateRequest": {
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "format": "int32",
+            "type": "integer"
+          },
+          "name": {
+            "type": "string",
+            "x-nullable": true
+          }
+        },
+        "type": "object"
+      }
+    },
+    "x-components": {}
+  }
