@@ -3,6 +3,6 @@
     public class OperationResponse
     {
         public bool IsAllowed { get; set; }
-        public int Mark { get; set; }
+        public int? Mark { get; set; }
     }
 }
